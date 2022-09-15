@@ -1,0 +1,207 @@
+<!doctype html><!-- Файл form-1.html -->
+<html lang="ru">
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Формы связи – Компоненты Mitorun Studio</title>
+	<meta name="description" content="Описание компонента">
+	<meta name="author" content="Oleg Mitorun">
+
+	<link rel="stylesheet" href="form.css">
+	<meta name="theme-color" content="#d4e6f7">
+	<link rel="icon" type="image/svg+xml" sizes="any" href="img/favicon.svg">
+
+	<style></style>
+</head>
+
+
+<body>
+
+
+	<main class="container">
+
+		<h1>Форма без JS</h1>
+		<hr>
+
+
+		<form class="form" id="form" action="fls\phpmailer\mail-exp.php" method="POST" enctype="multipart/form-data">
+			<h3 class="form-title">Написать на почту</h3>
+
+
+			<!--Текстовые поля ввода:-->
+			<div class="form-item-text">
+				<label class="form-label" for="name">Ваше имя</label>
+				<input class="form-input-text" id="name" type="text" name="name" placeholder="Иван" autocomplete="off" minlength="3" maxlength="50">
+			</div>
+
+
+			<div class="form-item-text">
+				<label class="form-label required" for="email">Ваш емейл</label>
+				<input class="form-input-text" id="email" type="email" name="email" placeholder="email@example.com" autocomplete="email" minlength="6" maxlength="100" required>
+				<span class="validation-icon" aria-hidden="true"></span>
+			</div>
+
+
+			<div class="form-item-text">
+				<label class="form-label" for="tel">Ваш телефон</label>
+				<input class="form-input-text" id="tel" type="tel" name="tel" placeholder="+7 123 456 78 90" autocomplete="tel" minlength="6" maxlength="13">
+			</div>
+
+
+			<div class="form-item-text">
+				<label class="form-label required" for="message">Ваше сообщение</label>
+				<textarea class="form-input-text" id="message" name="message" placeholder="Напишите нам" rows="6" autocomplete="off" minlength="10" maxlength="1500" spellcheck="true" required></textarea>
+				<span class="validation-icon" aria-hidden="true"></span>
+			</div>
+
+
+			<!-- Инпут-приманка (ловушка для ботов): -->
+			<div class="form-item-text" style="display: none;">
+				<label class="honeypot" for="honeypot" style="display: none;" aria-hidden="true" hidden>Оставьте это поле пустым</label>
+				<input class="honeypot" id="honeypot" style="display: none;" type="text" autocomplete="off" tabindex="-1" aria-hidden="true" hidden>
+			</div>
+
+
+
+
+			<!--Чекбоксы:-->
+			<label class="form-item-point form-label required" for="agreement">
+				<input class="form-input-point" id="agreement" type="checkbox" name="agreement" required>
+				Даю согласие на обработку персональных данных в соответствии с условиями
+			</label>
+
+
+			<fieldset class="form-fieldset">
+				<legend class="form-title">Чекбоксы:</legend>
+
+				<label class="form-item-point form-label" for="checkbox-1">
+					<input class="form-input-point" id="checkbox-1" type="checkbox" checked>
+					Чекбокс №1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint assumenda eaque nihil praesentium quia incidunt nulla vero, optio doloribus molestias illum aut perspiciatis atque dicta neque voluptate autem obcaecati. Totam.
+				</label>
+
+				<label class="form-item-point form-label" for="checkbox-2">
+					<input class="form-input-point" id="checkbox-2" type="checkbox">
+					Чекбокс №2 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+				</label>
+
+				<div class="form-item-point form-label">
+					<input class="form-input-point" id="checkbox-3" type="checkbox">
+					<label class="form-label" for="checkbox-3">Чекбокс №3</label>
+				</div>
+			</fieldset>
+
+
+			<!--Радиокнопки:-->
+			<fieldset class="form-fieldset">
+				<legend class="form-title">Радиокнопки:</legend>
+
+				<label class="form-item-point form-label" for="radio-1">
+					<input class="form-input-point" id="radio-1" type="radio" name="radio" value="radio-1" checked>
+					Радиокнопка №1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero eligendi facere officia laboriosam sequi laudantium deserunt quo earum repellat. Consequatur, officiis? Placeat facere tempore totam odio ab magnam nihil.
+				</label>
+
+				<label class="form-item-point form-label" for="radio-2">
+					<input class="form-input-point" id="radio-2" type="radio" name="radio" value="radio-2">
+					Радиокнопка №2
+				</label>
+			</fieldset>
+
+
+			<!-- Выпадающие списки (select): -->
+			<div class="form-item-text">
+				<label class="form-label" for="groups">Выбор с группами:</label>
+				<select class="form-input-text" id="groups" name="groups">
+					<optgroup label="Фрукты:">
+						<option selected></option>
+						<option>Банан</option>
+						<option>Вишня</option>
+						<option>Лемон</option>
+					</optgroup>
+					<optgroup label="Овощи:">
+						<option>Редис</option>
+						<option>Свекла</option>
+						<option>Картофель</option>
+					</optgroup>
+				</select>
+			</div>
+
+
+			<div class="form-item-text">
+				<label class="form-label" for="fruit">Выберите фрукт:</label>
+				<input class="form-input-text" id="fruit" type="text" name="fruit" list="suggestion">
+				<datalist id="suggestion">
+					<option>Апельсин</option>
+					<option>Банан</option>
+					<option>Вишня</option>
+					<option>Лемон</option>
+					<option>Персик</option>
+					<option>Слива</option>
+					<option>Смородина</option>
+					<option>Яблоко</option>
+				</datalist>
+			</div>
+
+
+
+			<!--Загрузка файлов:-->
+			<div class="form-item-text">
+				<label class="form-input-text form-label-file" for="file">Выберите файл для загрузки</label>
+				<input class="form-input-file" id="file" type="file" name="file" multiple>
+				<ul id="file-list"></ul>
+			</div>
+
+			<script>
+				//Скрипт для загрузки файлов от MDN:
+				const fileInput = document.querySelector('#file');
+				const fileList = document.querySelector('#file-list');
+
+				fileInput.addEventListener('change', updateFileList);
+
+				function updateFileList() {
+					while (fileList.firstChild) {
+						fileList.removeChild(fileList.firstChild);
+					}
+
+					let curFiles = fileInput.files;
+
+					if (!(curFiles.length === 0)) {
+						console.log('test');
+						for (let i = 0; i < curFiles.length; i++) {
+							const listItem = document.createElement('li');
+							listItem.textContent = 'File name: ' + curFiles[i].name + '; file size ' + returnFileSize(curFiles[i].size) + '.';
+							fileList.appendChild(listItem);
+						}
+					}
+				}
+
+				function returnFileSize(number) {
+					if (number < 1024) {
+						return number + 'bytes';
+					} else if (number >= 1024 && number < 1048576) {
+						return (number / 1024).toFixed(1) + 'KB';
+					} else if (number >= 1048576) {
+						return (number / 1048576).toFixed(1) + 'MB';
+					}
+				}
+			</script>
+
+
+			<!--Кнопка отправки формы:-->
+			<button class="button" type="submit">Кнопка</button>
+
+
+			<!--Сообщения об успешной или неудачной отправке:-->
+			<p class="form-success">Сообщение отправлено.</p>
+			<p class="form-failure">Сообщение не отправлено!</p>
+		</form>
+
+
+	</main>
+
+
+	<div style="height: 100vh;"></div>
+
+
+</body>
+</html>
