@@ -22,36 +22,40 @@
 	<main class="container">
 
 		<h1>Форма базовая с JS</h1>
-		<hr>
+
+		<br><hr><br>
+		<a href="form.html">Форма - описание работы форм.</a><br>
+		<a href="form-1.html">Форма-1 без JS (работает только на PHP).</a><br>
+		<a href="form-2.html">Форма-2 с JS.</a><br>
+		<a href="form-3.html">Форма-3 ???.</a><br>
+		<a href="https://github.com/mitorun/mitosite-form">Файлы PHP на гитхабе.</a><br>
+		<a href="https://github.com/PHPMailer/PHPMailer">https://github.com/PHPMailer/PHPMailer</a><br>
+		<br><hr><br>
 
 
-		<form class="form" id="form" action="fls\phpmailer\mail-exp.php" method="POST" enctype="multipart/form-data">
+
+
+		<form class="form" id="form" action="fls\phpmailer\mail-3.php" method="POST" enctype="multipart/form-data">
 			<h3 class="form-title">Написать на почту</h3>
 
 
 			<!--Текстовые поля ввода:-->
 			<div class="form-item-text">
 				<label class="form-label" for="name">Ваше имя</label>
-				<input class="form-input-text" id="name" type="text" name="name" placeholder="Иван" autocomplete="off" minlength="2" maxlength="50">
+				<input class="form-input-text" id="text" type="text" name="text" placeholder="Иван" autocomplete="off" minlength="3" maxlength="50">
 			</div>
 
 
 			<div class="form-item-text">
-				<label class="form-label required" for="email">Ваш емейл</label>
-				<input class="form-input-text" id="email" type="email" name="email" placeholder="email@example.com" autocomplete="email" minlength="6" maxlength="100" required>
+				<label class="form-label" for="email">Ваш емейл</label>
+				<input class="form-input-text" id="email" type="email" name="email" placeholder="email@example.com" autocomplete="email" minlength="6" maxlength="100">
 				<span class="validation-icon" aria-hidden="true"></span>
 			</div>
 
 
 			<div class="form-item-text">
-				<label class="form-label" for="tel">Ваш телефон</label>
-				<input class="form-input-text" id="tel" type="tel" name="tel" placeholder="+7 123 456 78 90" autocomplete="tel" minlength="6" maxlength="20" data-tel-input>
-			</div>
-
-
-			<div class="form-item-text">
-				<label class="form-label required" for="message">Ваше сообщение</label>
-				<textarea class="form-input-text" id="message" name="message" placeholder="Напишите нам" rows="6" autocomplete="off" minlength="6" maxlength="1500" spellcheck="true" required></textarea>
+				<label class="form-label" for="message">Ваше сообщение</label>
+				<textarea class="form-input-text" id="message" name="message" placeholder="Напишите нам" rows="6" autocomplete="off" minlength="10" maxlength="1500" spellcheck="true"></textarea>
 				<span class="validation-icon" aria-hidden="true"></span>
 			</div>
 
@@ -63,95 +67,6 @@
 			</div>
 
 
-
-
-			<!--Чекбоксы:-->
-			<label class="form-item-point form-label required" for="agreement">
-				<input class="form-input-point" id="agreement" type="checkbox" name="agreement">
-				Даю согласие на обработку персональных данных в соответствии с условиями
-			</label>
-
-
-			<fieldset class="form-fieldset">
-				<legend class="form-title">Чекбоксы:</legend>
-
-				<label class="form-item-point form-label" for="checkbox-1">
-					<input class="form-input-point" id="checkbox-1" type="checkbox" name="checkbox-1" checked>
-					Чекбокс №1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint assumenda eaque nihil praesentium quia incidunt nulla vero, optio doloribus molestias illum aut perspiciatis atque dicta neque voluptate autem obcaecati. Totam.
-				</label>
-
-				<label class="form-item-point form-label" for="checkbox-2">
-					<input class="form-input-point" id="checkbox-2" type="checkbox" name="checkbox-2">
-					Чекбокс №2 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-				</label>
-
-				<div class="form-item-point form-label">
-					<input class="form-input-point" id="checkbox-3" type="checkbox" name="checkbox-3">
-					<label class="form-label" for="checkbox-3">Чекбокс №3</label>
-				</div>
-			</fieldset>
-
-
-			<!--Радиокнопки:-->
-			<fieldset class="form-fieldset">
-				<legend class="form-title">Радиокнопки:</legend>
-
-				<label class="form-item-point form-label" for="radio-1">
-					<input class="form-input-point" id="radio-1" type="radio" name="radio" value="radio-1" checked>
-					Радиокнопка №1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero eligendi facere officia laboriosam sequi laudantium deserunt quo earum repellat. Consequatur, officiis? Placeat facere tempore totam odio ab magnam nihil.
-				</label>
-
-				<label class="form-item-point form-label" for="radio-2">
-					<input class="form-input-point" id="radio-2" type="radio" name="radio" value="radio-2">
-					Радиокнопка №2
-				</label>
-			</fieldset>
-
-
-			<!-- Выпадающие списки (select): -->
-			<div class="form-item-text">
-				<label class="form-label" for="groups">Выбор с группами:</label>
-				<select class="form-input-text" id="groups" name="groups">
-					<optgroup label="Фрукты:">
-						<option selected></option>
-						<option>Банан</option>
-						<option>Вишня</option>
-						<option>Лемон</option>
-					</optgroup>
-					<optgroup label="Овощи:">
-						<option>Редис</option>
-						<option>Свекла</option>
-						<option>Картофель</option>
-					</optgroup>
-				</select>
-			</div>
-
-
-			<div class="form-item-text">
-				<label class="form-label" for="fruit">Выберите фрукт:</label>
-				<input class="form-input-text" id="fruit" type="text" name="fruit" list="suggestion">
-				<datalist id="suggestion">
-					<option>Апельсин</option>
-					<option>Банан</option>
-					<option>Вишня</option>
-					<option>Лемон</option>
-					<option>Персик</option>
-					<option>Слива</option>
-					<option>Смородина</option>
-					<option>Яблоко</option>
-				</datalist>
-			</div>
-
-
-
-			<!--Загрузка файлов:-->
-			<div class="form-item-text">
-				<label class="form-input-text form-label-file" for="file">Выберите файл для загрузки</label>
-				<input class="form-input-file" id="file" type="file" name="file" multiple>
-				<ul id="file-list"></ul>
-			</div>
-
-
 			<!--Кнопка отправки формы:-->
 			<button class="button" type="submit">Кнопка</button>
 
@@ -160,9 +75,6 @@
 			<p class="form-success">Сообщение отправлено.</p>
 			<p class="form-failure">Сообщение не отправлено!</p>
 		</form>
-
-
-	</main>
 
 
 	<div style="height: 100vh;"></div>
