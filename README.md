@@ -26,12 +26,15 @@
 
 ## Текущие проблемы конфига mail.php
 
-Отправка формы-1 (без JS) и формы-2 (с JS) приводит к одинаковому результату: письмо нормально пришло, но страница перенаправляется на https://mitorun.studio/fls/phpmailer/mail-1.php и нет никаких подтверждений успешной отправки.
+- Отправка формы-1 (без JS) и формы-2 (с JS) приводит к одинаковому результату: письмо нормально пришло, но страница перенаправляется на https://ipbro.ru/fls/phpmailer/mail-1.php и нет никаких подтверждений успешной отправки.
 
-При этом загрузка файлов не работает: открывается страница https://mitorun.studio/fls/phpmailer/mail-exp.php с ошибкой Fatal error: Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in /var/www/u0867248/data/www/mitorun.studio/fls/phpmailer/mail-exp.php:54 Stack trace: #0 {main} thrown in /var/www/u0867248/data/www/mitorun.studio/fls/phpmailer/mail-exp.php on line 54.
+При этом загрузка файлов не работает: открывается страница https://ipbro.ru/fls/phpmailer/mail-exp.php с ошибкой:
+```
+Fatal error: Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in /var/www/u0867248/data/www/mitorun.studio/fls/phpmailer/mail-exp.php:54 Stack trace: #0 {main} thrown in /var/www/u0867248/data/www/mitorun.studio/fls/phpmailer/mail-exp.php on line 54.
+```
 
 Дорабатывать вероятно нужно два участка кода, это "Формирование самого письма":
-```
+```php
 //$title = "Тема письма";
 $file = $_FILES['file'];
 $c = true;
@@ -56,7 +59,7 @@ $body = "<table style='width: 100%;'>$body</table>";
 <br>
 
 ...и "Отправка сообщения":
-```
+```php
 // Отправка сообщения:
 	$mail->isHTML(true);
 	$mail->Subject = $title;
@@ -108,7 +111,7 @@ $body = "<table style='width: 100%;'>$body</table>";
 
 Что отправка работала и с приманкой и без приманки, а когда приманка заполнена, то письмо чтобы не отправлялось. Чтобы можно было просто добавлять или удалять в форме этот инпут, а в скрипте чтобы можно было легко удалить этот участок кода. На бэкенде ваш скрипт обработки может проверить, заполнено ли поле-приманка. Если это так, то отправка, вероятно, была от бота, и можно ее проигнорировать.
 
-```
+```html
 <label class="honeypot" for="honeypot" style="display: none;" aria-hidden="true" hidden>Оставьте это поле пустым</label>
 <input class="honeypot" id="honeypot" style="display: none;" type="text" autocomplete="off" tabindex="-1" aria-hidden="true" hidden>
 ```
@@ -116,7 +119,7 @@ $body = "<table style='width: 100%;'>$body</table>";
 #### Сообщение об успехе/неудаче отправки
 
 - После успешной отправки сообщения скрипт должен показать пользователю что сообщение отправлено и очистить форму. Не знаю какое тут лучшее решение. Сейчас в HTML добавляю:
-```
+```html
 <p class="form-success">Сообщение отправлено.</p>
 <p class="form-failure">Сообщение не отправлено!</p>
 ```
