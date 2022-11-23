@@ -2,6 +2,12 @@
 
 Универсальная форма с отправкой сообщений на емейл. Используются: библиотека PHPMailer, SMTP, JS, AJAX. Валидация HTML+JS, защиты от ботов, сообщения об успехе/ошибке.
 
+- [Форма-1 без JS (работает только на PHP).](https://ipbro.ru/form-1.html)
+- [Форма-2 с JS.](https://ipbro.ru/form-2.html)
+- [Форма-3 навороченная (отправка файлов, маска, валидация).](https://ipbro.ru/form-3.html)
+- [Исходные файлы на гитхабе.](https://github.com/mitorun/mitosite-form)
+- [https://github.com/PHPMailer/PHPMailer](https://github.com/PHPMailer/PHPMailer)
+
 ---
 
 ## Требования к PHP-файлу
@@ -19,6 +25,10 @@
 ---
 
 ## Текущие проблемы конфига mail.php
+
+Отправка формы-1 (без JS) и формы-2 (с JS) приводит к одинаковому результату: письмо нормально пришло, но страница перенаправляется на https://mitorun.studio/fls/phpmailer/mail-1.php и нет никаких подтверждений успешной отправки.
+
+При этом загрузка файлов не работает: открывается страница https://mitorun.studio/fls/phpmailer/mail-exp.php с ошибкой Fatal error: Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in /var/www/u0867248/data/www/mitorun.studio/fls/phpmailer/mail-exp.php:54 Stack trace: #0 {main} thrown in /var/www/u0867248/data/www/mitorun.studio/fls/phpmailer/mail-exp.php on line 54.
 
 Дорабатывать вероятно нужно два участка кода, это "Формирование самого письма":
 ```
@@ -41,10 +51,9 @@ foreach ( $_POST as $key => $value ) {
 }
 $body = "<table style='width: 100%;'>$body</table>";
 ```
-Тут есть лишний код: прописано условие, что $key сравнивается с project_name, admin_email и form_subject. Автор говорит что это код со старого скрипта и это условие можно удалить.
+Тут есть лишний код: прописано условие, что $key сравнивается с project_name, admin_email и form_subject. Автор говорит что это код со старого скрипта и это условие можно удалить. Еще вопросы вызывает частое использование $body и $title - нужны ли они?
 
-Еще вопросы вызывает частое использование $body и $title - нужны ли они?
-
+<br>
 
 ...и "Отправка сообщения":
 ```
@@ -60,7 +69,18 @@ $body = "<table style='width: 100%;'>$body</table>";
 
 ---
 
-<br><br><br><br><br>
+<br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
 
 ## Требования к управляющему JS-скрипту
 
