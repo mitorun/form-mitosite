@@ -1,5 +1,5 @@
 <?php
-// Это оригинальный файл от MaxGraph.
+// Это оригинальный PHP-конфиг от MaxGraph.
 
 // Файлы phpmailer:
 require 'PHPMailer.php';
