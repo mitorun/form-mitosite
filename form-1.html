@@ -1,3 +1,7 @@
+---
+permalink: /form-1.html
+eleventyExcludeFromCollections: true
+---
 <!doctype html><!-- Файл form-1.html -->
 <html lang="ru">
 <head>
@@ -10,7 +14,7 @@
 
 	<link rel="stylesheet" href="form.css">
 	<meta name="theme-color" content="#d4e6f7">
-	<link rel="icon" type="image/svg+xml" sizes="any" href="img/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="any" href="/img/favicon.svg">
 
 	<style></style>
 </head>
@@ -24,49 +28,53 @@
 		<h1>Форма без JS</h1>
 
 		<br><hr><br>
-		<a href="form.html">Форма - описание работы форм.</a><br>
+		<a href="https://github.com/mitorun/form-mitosite">Описание форм, текущие проблемы и сами файлы на Гитхабе.</a><br>
 		<a href="form-1.html">Форма-1 без JS (работает только на PHP).</a><br>
 		<a href="form-2.html">Форма-2 с JS.</a><br>
-		<a href="form-3.html">Форма-3 ???.</a><br>
-		<a href="https://github.com/mitorun/mitosite-form">Файлы PHP на гитхабе.</a><br>
+		<a href="form-3.html">Форма-3 со всеми инпутами.</a><br>
 		<a href="https://github.com/PHPMailer/PHPMailer">https://github.com/PHPMailer/PHPMailer</a><br>
 		<br><hr><br>
 
 
 
 
-		<form class="form" id="form" action="fls\phpmailer\mail-3.php" method="POST" enctype="multipart/form-data">
-			<h3 class="form-title">Написать на почту</h3>
+		<form class="form" id="form" action="/fls/phpmailer/mail-1.php" method="POST" enctype="multipart/form-data">
+			<h3 class="form__title">Написать на почту</h3>
 
 
-			<!--Текстовые поля ввода:-->
-			<div class="form-item-text">
-				<label class="form-label" for="name">Ваше имя</label>
-				<input class="form-input-text" id="text" type="text" name="text" placeholder="Иван" autocomplete="off" minlength="3" maxlength="50">
+			<div class="form__item">
+				<label class="form__label" for="name">Ваше имя</label>
+				<input class="form__input" id="name" type="text" name="name" placeholder="Иван" autocomplete="off" minlength="2" maxlength="50" title="Введите ваше имя">
 			</div>
 
 
-			<div class="form-item-text">
-				<label class="form-label" for="email">Ваш емейл</label>
-				<input class="form-input-text" id="email" type="email" name="email" placeholder="email@example.com" autocomplete="email" minlength="6" maxlength="100">
-				<span class="validation-icon" aria-hidden="true"></span>
+			<div class="form__item">
+				<label class="form__label required" for="email">Ваш емейл</label>
+				<input class="form__input" id="email" type="email" name="email" placeholder="email@example.com" autocomplete="email" minlength="6" maxlength="100" title="Введите действующий емейл" required>
+				<span class="form__validation" aria-hidden="true"></span>
 			</div>
 
 
-			<div class="form-item-text">
-				<label class="form-label" for="message">Ваше сообщение</label>
-				<textarea class="form-input-text" id="message" name="message" placeholder="Напишите нам" rows="6" autocomplete="off" minlength="10" maxlength="1500" spellcheck="true"></textarea>
-				<span class="validation-icon" aria-hidden="true"></span>
+			<div class="form__item">
+				<label class="form__label" for="tel">Ваш телефон</label>
+				<input class="form__input" id="tel" type="tel" name="tel" placeholder="+7 123 456 78 90" autocomplete="tel" minlength="6" maxlength="20" title="Включая код страны (+7)">
+				<span class="form__validation" aria-hidden="true"></span>
 			</div>
 
 
-			<!--Кнопка отправки формы:-->
-			<button class="button" type="submit">Кнопка</button>
+			<div class="form__item">
+				<label class="form__label" for="message">Ваше сообщение</label>
+				<textarea class="form__input" id="message" name="message" rows="5" placeholder="Напишите нам" autocomplete="off" minlength="6" maxlength="1500" spellcheck="true" title="Сообщение должно содержать от 6 до 1500 символов"></textarea>
+				<span class="form__validation" aria-hidden="true"></span>
+			</div>
+
+
+			<button class="button button--form" type="submit">Кнопка</button>
 
 
 			<!--Сообщения об успешной или неудачной отправке:-->
-			<p class="form-success">Сообщение отправлено.</p>
-			<p class="form-failure">Сообщение не отправлено!</p>
+			<p class="form__success">Сообщение отправлено.</p>
+			<p class="form__failure">Ошибка! Сообщение не отправлено.</p>
 		</form>
 
 
