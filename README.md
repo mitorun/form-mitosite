@@ -12,6 +12,38 @@
 
 ---
 
+## Использование формы form-mitosite
+
+Создаём HTML формы. Обязательно добавить класс `class="form"` (по нему инициализируется JS) и путь к PHP-конфигу `action="/fls/phpmailer/mail.php"`. Еще скрипт использует классы `form__success` и `form__failure` для вывода успеха или ошибки отправки, остальные классы и атрибуты используются только для стилизации и их можно менять.
+
+```html
+<form class="form" id="form" action="/fls/phpmailer/mail.php" method="POST" enctype="multipart/form-data">
+	<div class="form__item">
+		<label class="form__label" for="tel">Ваш телефон</label>
+		<input class="form__input" id="tel" type="tel" name="tel" placeholder="+7 123 456 78 90" autocomplete="tel" minlength="6" maxlength="20" title="Включая код страны (+7)">
+		<span class="form__validation" aria-hidden="true"></span>
+	</div>
+	
+	<button class="button button--form" type="submit">Кнопка</button>
+
+	<p class="form__success">Сообщение отправлено.</p>
+	<p class="form__failure">Ошибка! Сообщение не отправлено.</p>
+</form>
+```
+
+### Настройка PHP-конфига `mail.php`
+
+```php
+$title = "Заголовок письма";
+$mail->Username = 'example@gmail.com';// Логин на почте my@example.com
+$mail->Password = '******';// Пароль ПРИЛОЖЕНИЯ на почте
+$mail->setFrom('example@gmail.com', 'Заявка с сайта');// Адрес и имя отправителя.
+$mail->addAddress('example@example.com');// Заполнить емейл(-ы) куда будут приходить письма.
+```
+
+## Особенности компонента:
+- Форма может работать вообще без JS-скрипта, причём для этого ничего не нужно делать. Атрибут `action="/fls/phpmailer/mail.php"` направляет данные в PHP-скрипт и тот отправляет письмо. Только при этом в браузере открывается страница (белая-пустая) этого PHP-скрипта. Идея для улучшения: доработать PHP-скрипт так, чтобы пользователя возвращало на ту же страницу с формой.
+
 ## Текущие проблемы конфига mail.php
 
 - Отправка формы-1 (без JS): письмо нормально пришло, но страница перенаправляется на https://ipbro.ru/fls/phpmailer/mail-1.php и пишет такую ошибку:
