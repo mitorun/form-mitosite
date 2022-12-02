@@ -9,7 +9,7 @@ require 'Exception.php';
 // Формирование самого письма:
 $file = $_FILES['file'];// это и код ниже нужно включить если нужна отправка файлов.
 $c = true;
-$title = "Сообщение из IpBro";
+$title = "Сообщение из ХХХ";
 $body = "";
 foreach ( $_POST as $key => $value ) {
 	if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
@@ -38,9 +38,9 @@ try {
 	$mail->Host       = 'smtp.gmail.com';// SMTP сервера вашей почты. Яндекс: smtp.yandex.ru ssl 465 Мейл.ру: smtp.mail.ru ssl 465
 	$mail->Port       = 465;
 	$mail->SMTPSecure = 'ssl';
-	$mail->Username   = 'bearru@gmail.com';// Логин на почте my@example.com
-	$mail->Password   = 'zzpklurylczpgsdw';// Пароль ПРИЛОЖЕНИЯ на почте (его нужно получить-запросить специально)
-	$mail->setFrom('bearru@gmail.com', 'Заявка с IpBro');// Адрес и имя отправителя.
+	$mail->Username   = 'hi@gmail.com';// Логин на почте my@example.com
+	$mail->Password   = '******';// Пароль ПРИЛОЖЕНИЯ на почте (его нужно получить-запросить специально)
+	$mail->setFrom('hi@gmail.com', 'Заявка с XXX');// Адрес и имя отправителя.
 
 	// Заполнить емейл(-ы) куда будут приходить письма:
 	$mail->addAddress('contact@mitorun.studio');
