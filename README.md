@@ -7,8 +7,8 @@
 - [Форма-1 без JS (работает на PHPMailer с SMTP).](https://ipbro.ru/form-1.html)
 - [Форма-2 базовая с JS.](https://ipbro.ru/form-2.html)
 - [Форма-3 навороченная (отправка файлов, маска, вторая форма, валидация).](https://ipbro.ru/form-3.html)
-- [Исходные файлы на гитхабе.](https://github.com/mitorun/form-mitosite)
 - [https://github.com/PHPMailer/PHPMailer](https://github.com/PHPMailer/PHPMailer)
+- [Маска для телефона phoneinput](https://github.com/alexey-goloburdin/phoneinput)
 
 ---
 
